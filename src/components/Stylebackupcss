@@ -1,7 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
-const opacityDelay=0.2;
-export const Style = createGlobalStyle`
-    body{
+body{
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         font-family: Roboto, sans-serif;
@@ -29,6 +26,7 @@ export const Style = createGlobalStyle`
     }
     li{
         list-style: none;
+        font-size: 3vh;
     }
     .navbar{
         position: fixed;
@@ -40,12 +38,27 @@ export const Style = createGlobalStyle`
     #lightswitch{
         
     }
-    
-      #landing, #about{
-        height: 100vh;
-        min-height:500px;
+    #content{
+        position: relative;
+        left:25%;
+        width:50%;
       }
-      #contact ul, ul.tagbox{
+      #landing h1{
+        font-size: 8vw;
+      }
+      h1{
+        font-size: 5vw;
+      }
+      p{
+        font-size: 1.5vw;
+      }
+      #landing span{
+        font-size: 3vw;
+      }
+      #landing, #about, #work{
+        height: 100vh;
+      }
+      #contact ul {
         padding-left:0;
       }
       #contact ul li{
@@ -55,7 +68,12 @@ export const Style = createGlobalStyle`
       .Component-root-1, .jss1{
         margin: 0 !important;
       }
-      
+      #work ul{
+        padding:0;
+      }
+      #work li:not(:last-child){
+        margin-bottom: 30px;
+      }
       .project:hover{
         opacity:1;
         transition: opacity ${opacityDelay}s ease-out;
@@ -70,29 +88,17 @@ export const Style = createGlobalStyle`
           -webkit-transition: opacity ${opacityDelay}s ease-out;
           -o-transition: opacity ${opacityDelay}s ease-out;
           height: 250px;
-          margin-bottom:30px;
           
       }
-
-    Row Col{
-      opacity:0.5;
+      .project-thumb{
+          width: 48%;
+          height: 100%;
+          float: left;
+          background-color:red;
+      }
+      .project-title{
+        width: 48%;
+        height: 100%;
+        float: right;
+        margin-left:10px;
     }
-    .container{
-      width: 50%;
-      min-width:400px;
-    }
-
-    .credits{
-      font-style:italic;
-      opacity:50%;
-    }
-    ul.tagbox li.tag{
-      display: inline-block;
-      padding: 10px;
-      text-align: center;
-      
-      margin-right: 10px;
-      border-radius: 250px;
-      background: ${({ theme }) => theme.tags};
-    }
-      `;

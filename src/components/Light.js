@@ -1,18 +1,19 @@
 import React from 'react';
-import {Switch,Box} from "@material-ui/core";
+import {Switch} from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 
+const switchSize=82;
 export const IOSSwitch = withStyles((theme) => ({
     root: {
-      width: 84,
-      height: 52,
-      padding: 0,
+      width: switchSize+'px',
+      height: 50/switchSize*switchSize+'px',
+      padding: 1,
       margin: theme.spacing(1),
     },
     switchBase: {
       padding: 1,
       '&$checked': {
-        transform: 'translateX(32px)',
+        transform: `translateX(${32/switchSize*switchSize}px)`,
         color: theme.palette.common.white,
         '& + $track': {
           backgroundColor: '#52d869',
@@ -26,13 +27,12 @@ export const IOSSwitch = withStyles((theme) => ({
       },
     },
     thumb: {
-      width: 48,
-      height: 48,
+      width: 48/switchSize*switchSize+'px',
+      height: 48/switchSize*switchSize+'px',
     },
     track: {
-      borderRadius: 52 / 2,
-    //   border: `1px solid ${theme.palette.grey[400]}`,
-      backgroundColor: theme.palette.grey[50],
+      borderRadius:  26/switchSize*switchSize+'px',
+      backgroundColor: '#D0D0D0',
       opacity: 1,
       transition: theme.transitions.create(['background-color', 'border']),
     },
@@ -40,7 +40,6 @@ export const IOSSwitch = withStyles((theme) => ({
     focusVisible: {},
   }))(({ classes, ...props }) => {
     return (
-    // <Box id='lightswitch'>
       <Switch
         focusVisibleClassName={classes.focusVisible}
         disableRipple
@@ -53,6 +52,5 @@ export const IOSSwitch = withStyles((theme) => ({
         }}
         {...props}
       />
-    //   </Box>
     );
-  });
+  } );
